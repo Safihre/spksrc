@@ -1,5 +1,5 @@
 SPK_NAME = dnscrypt-proxy
-SPK_VERS = 2.0.14
+SPK_VERS = 2.0.15
 SPK_REV = 0
 SPK_ICON = src/dnscrypt-proxy.png
 
@@ -13,7 +13,6 @@ HELPURL = https://github.com/jedisct1/dnscrypt-proxy/wiki
 LICENSE = ISC
 CHANGELOG = "Added a GUI"
 
-RELOAD_UI = yes
 STARTABLE = yes
 BETA = 1
 

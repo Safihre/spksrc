@@ -102,12 +102,14 @@ $(WORK_DIR)/INFO:
 	@echo dsmappname=\"com.synocommunity.$(SPK_NAME)\" >> $@
 	@echo thirdparty=\"yes\" >> $@
 	@echo version=\"$(SPK_VERS)-$(SPK_REV)\" >> $@
-	@echo description=\""$(DESCRIPTION)"\" >> $@
+	@/bin/echo -n "description=\"" >> $@
+	@/bin/echo -n "${DESCRIPTION}" | sed -e 's/\\//g' -e 's/"/\\"/g' >> $@
+	@echo "\"" >> $@
 	@echo $(foreach LANGUAGE, $(LANGUAGES), \
-	    $(shell [ ! -z "$(DESCRIPTION_$(shell echo $(LANGUAGE) | tr [:lower:] [:upper:]))" ] && \
-	            echo -n description_$(LANGUAGE)=\\\"$(DESCRIPTION_$(shell echo $(LANGUAGE) | tr [:lower:] [:upper:]))\\\" \
-	   ) \
-	) | sed 's|"\s|"\n|' >> $@
+          $(shell [ ! -z "$(DESCRIPTION_$(shell echo $(LANGUAGE) | tr [:lower:] [:upper:]))" ] && \
+            /bin/echo -n "description_$(LANGUAGE)=\\\"" && \
+            /bin/echo -n "$(DESCRIPTION_$(shell echo $(LANGUAGE) | tr [:lower:] [:upper:]))"  | sed -e 's/"/\\\\\\"/g' && \
+            /bin/echo -n "\\\"\\\n")) >> $@
 	@echo arch=\"$(SPK_ARCH)\" >> $@
 ifneq ($(strip $(MAINTAINER)),)
 	@echo maintainer=\"$(MAINTAINER)\" >> $@
@@ -117,16 +119,25 @@ endif
 	@echo maintainer_url=\"$(MAINTAINER_URL)\" >> $@
 	@echo distributor=\"$(DISTRIBUTOR)\" >> $@
 	@echo distributor_url=\"$(DISTRIBUTOR_URL)\" >> $@
+
 ifneq ($(strip $(FIRMWARE)),)
 	@echo firmware=\"$(FIRMWARE)\" >> $@
-else
-  ifneq ($(strip $(TC_FIRMWARE)),)
+else ifneq ($(strip $(OS_MIN_VER)),)
+	@echo os_min_ver=\"$(OS_MIN_VER)\" >> $@
+else ifneq ($(strip $(TC_FIRMWARE)),)
 	@echo firmware=\"$(TC_FIRMWARE)\" >> $@
-  else
+	@echo os_min_ver=\"$(TC_FIRMWARE)\" >> $@
+else ifneq ($(strip $(TC_OS_MIN_VER)),)
+	@echo os_min_ver=\"$(TC_OS_MIN_VER)\" >> $@
+else
 	@echo firmware=\"3.1-1594\" >> $@
-  endif
+	@echo os_min_ver=\"3.1-1594\" >> $@
+endif
+ifneq ($(strip $(OS_MAX_VER)),)
+	@echo os_max_ver=\"$(OS_MAX_VER)\" >> $@
 endif
 ifneq ($(strip $(BETA)),)
+	@echo beta=\"yes\" >> $@
 	@echo report_url=\"$(REPORT_URL)\" >> $@
 endif
 ifneq ($(strip $(HELPURL)),)
@@ -148,8 +159,10 @@ endif
 ifneq ($(strip $(INSTUNINST_RESTART_SERVICES)),)
 	@echo instuninst_restart_services=\"$(INSTUNINST_RESTART_SERVICES)\" >> $@
 endif
+ifneq ($(strip $(RELOAD_UI)),)
 	@echo reloadui=\"$(RELOAD_UI)\" >> $@
-ifneq ($(strip $(STARTABLE)),)
+endif
+ifeq ($(STARTABLE),no)
 	@echo startable=\"$(STARTABLE)\" >> $@
 	@echo ctl_stop=\"$(STARTABLE)\" >> $@
 endif
