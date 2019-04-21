@@ -15,7 +15,7 @@ DESCRIPTION_SPN = SABnzbd hace que Usenet sea lo más simple posible, automatiza
 RELOAD_UI = yes
 DISPLAY_NAME = SABnzbd
 STARTABLE = yes
-CHANGELOG = "1) Update SABnzbd to 2.3.8"
+CHANGELOG = "1) Update SABnzbd to 2.3.8. 2) Update included unrar to 5.70."
 
 HOMEPAGE   = http://sabnzbd.org
 LICENSE    = GPL
