@@ -1,0 +1,26 @@
+PKG_NAME = bazarr
+
+include ./bazarr.mk
+
+PKG_VERS = v$(BAZARR_VERSION)
+PKG_EXT = tar.gz
+PKG_DIST_NAME = $(PKG_VERS).$(PKG_EXT)
+PKG_DIST_FILE = $(PKG_NAME)-$(PKG_DIST_NAME)
+PKG_DIST_SITE = https://github.com/morpheus65535/bazarr/archive
+PKG_DIR = $(PKG_NAME)-$(BAZARR_VERSION)
+
+DEPENDS = cross/lxml
+
+CONFIGURE_TARGET = nop
+COMPILE_TARGET = nop
+INSTALL_TARGET = bazarrInstall
+
+HOMEPAGE = https://www.bazarr.media
+LICENSE = GPLv3
+
+include ../../mk/spksrc.python-module.mk
+
+.PHONY: bazarrInstall
+bazarrInstall:
+	mkdir -p $(STAGING_INSTALL_PREFIX)/share/$(PKG_NAME)
+	tar -cf - -C $(WORK_DIR)/$(PKG_DIR) . | tar -xf - -C $(STAGING_INSTALL_PREFIX)/share/$(PKG_NAME)
