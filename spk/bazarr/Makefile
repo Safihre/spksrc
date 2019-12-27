@@ -16,7 +16,7 @@ BETA = 1
 DEPENDS = cross/$(SPK_NAME)
 
 WHEELS = 
-SPK_DEPENDS = "python>=2.7.13:git"
+SPK_DEPENDS = "python>=2.7.13"
 
 MAINTAINER = SynoCommunity
 

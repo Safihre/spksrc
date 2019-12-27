@@ -7,10 +7,9 @@ DNAME="Bazarr"
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PYTHON_DIR="/usr/local/python"
-GIT_DIR="/usr/local/git"
 BAZARR_DIR="${INSTALL_DIR}/share/${PACKAGE}"
 
-export PATH="${INSTALL_DIR}/bin:${PYTHON_DIR}/bin:${GIT_DIR}/bin:${PATH}"
+export PATH="${INSTALL_DIR}/bin:${PYTHON_DIR}/bin:${PATH}"
 VAR_DIR="${INSTALL_DIR}/var";
 PID_FILE="${VAR_DIR}/bazarr.pid"
 PYTHON="${PYTHON_DIR}/bin/python"
@@ -22,7 +21,7 @@ start_daemon ()
 {
     pushd "${BAZARR_DIR}" >/dev/null \
         && start-stop-daemon -S -q -m -b -N 10 -p "${PID_FILE}" -x "${PYTHON}" -a "${BASH}" -- \
-            -c "exec \"${PYTHON}\" bazarr.py --config \"${VAR_DIR}/data\">>\"${VAR_DIR}/bazarr.log\" 2>&1" \
+            -c "exec \"${PYTHON}\" bazarr.py --no-update --config \"${VAR_DIR}/data\">>\"${VAR_DIR}/bazarr.log\" 2>&1" \
         && popd >/dev/null;
 }
 
