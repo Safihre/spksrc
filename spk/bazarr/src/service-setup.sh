@@ -6,10 +6,10 @@ DNAME="Bazarr"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
-PYTHON_DIR="/usr/local/python"
-VIRTUALENV="${PYTHON_DIR}/bin/virtualenv"
+PYTHON_DIR="/usr/local/python3"
 PATH="${INSTALL_DIR}/env/bin:${INSTALL_DIR}/bin:${PYTHON_DIR}/bin:${PATH}"
 VAR_DIR="${INSTALL_DIR}/var"
+PYTHON3="${PYTHON_DIR}/bin/python3"
 
 SC_USER="sc-${PACKAGE}"
 GROUP="sc-download"
@@ -28,7 +28,7 @@ service_postinst ()
     echo "Setting up python installation..."  >> "${INST_LOG}"
 
     # Create a Python virtualenv
-    ${VIRTUALENV} --system-site-packages ${INSTALL_DIR}/env >> "${INST_LOG}"
+    "${PYTHON3}" -m venv --system-site-packages ${INSTALL_DIR}/env >> "${INST_LOG}"
 
     # Install the wheels
 

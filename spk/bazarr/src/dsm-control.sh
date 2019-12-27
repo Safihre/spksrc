@@ -6,13 +6,13 @@ DNAME="Bazarr"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
-PYTHON_DIR="/usr/local/python"
+PYTHON_DIR="/usr/local/python3"
 BAZARR_DIR="${INSTALL_DIR}/share/${PACKAGE}"
 
 export PATH="${INSTALL_DIR}/bin:${PYTHON_DIR}/bin:${PATH}"
 VAR_DIR="${INSTALL_DIR}/var";
 PID_FILE="${VAR_DIR}/bazarr.pid"
-PYTHON="${PYTHON_DIR}/bin/python"
+PYTHON="${PYTHON_DIR}/bin/python3"
 BASH="/bin/bash"
 
 USER="sc-bazarr"
