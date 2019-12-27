@@ -1,6 +1,6 @@
 SPK_NAME = bazarr
 
-BAZARR_VERSION = 0.8.3.4
+BAZARR_VERSION = 0.8.4
 
 SPK_VERS = $(BAZARR_VERSION)
 SPK_REV = 1
@@ -9,14 +9,14 @@ SPK_ICON = src/bazarr.png
 
 REQUIRED_DSM = 6.1
 
-BUILD_DEPENDS = cross/python cross/setuptools cross/wheel
+BUILD_DEPENDS = cross/python3 cross/setuptools cross/wheel
 
 BETA = 1
 
 DEPENDS = cross/$(SPK_NAME)
 
 WHEELS = 
-SPK_DEPENDS = "python>=2.7.13"
+SPK_DEPENDS = "python3>=3.6"
 
 MAINTAINER = SynoCommunity
 
