@@ -92,7 +92,7 @@ python3_post_install: $(WORK_DIR)/python-cc.mk
 	. $(WORK_DIR)/crossenv/bin/activate && build-pip install "setuptools==44.1.0"  "wheel==0.33.6"
 	. $(WORK_DIR)/crossenv/bin/activate && pip install "setuptools==44.1.0" "wheel==0.33.6"
 ifneq ($(PYTHON_LIB_NATIVE),$(PYTHON_LIB_CROSS))
-	cp $(PYTHON_LIB_CROSS)/_sysconfigdata_*.py $(PYTHON_LIB_NATIVE)/_sysconfigdata.py
+	cp $(PYTHON_LIB_CROSS)/_sysconfigdata_m_linux_$(HOST_ARCH)-linux-gnu.py $(PYTHON_LIB_NATIVE)/_sysconfigdata.py
 endif
 
 $(WORK_DIR)/python-cc.mk:
@@ -108,3 +108,4 @@ $(WORK_DIR)/python-cc.mk:
 	@echo PYTHON_INC_DIR=$(PYTHON_INC_DIR) >> $@
 	@echo PIP=$(PIP_NATIVE) >> $@
 	@echo CROSS_COMPILE_WHEELS=1 >> $@
+
