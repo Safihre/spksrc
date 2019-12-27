@@ -1,6 +1,6 @@
 SPK_NAME = bazarr
 
-include ../../cross/bazarr/bazarr.mk
+BAZARR_VERSION = 0.8.3.4
 
 SPK_VERS = $(BAZARR_VERSION)
 SPK_REV = 1

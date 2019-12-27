@@ -1,6 +1,6 @@
 PKG_NAME = bazarr
 
-include ./bazarr.mk
+BAZARR_VERSION = 0.8.3.4
 
 PKG_VERS = v$(BAZARR_VERSION)
 PKG_EXT = tar.gz
