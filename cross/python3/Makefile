@@ -44,6 +44,9 @@ PYTHON_LIB_CROSS = $(WORK_DIR)/$(PKG_DIR)/build/lib.linux-$(BUILD_ARCH)-$(PKG_VE
 PYTHON_LIB_DIR = lib/python$(PKG_VERS_MAJOR).$(PKG_VERS_MINOR)
 PYTHON_INC_DIR = include/python$(PKG_VERS_MAJOR).$(PKG_VERS_MINOR)m
 
+PATH := $(WORK_DIR)/../../../native/$(PKG_NAME)/work-native/install/usr/local/bin/:$(PATH)
+export PATH
+
 .PHONY: python3_post_patch
 python3_post_patch:
 	$(RUN) sed -e 's#@INSTALL_PREFIX@#$(INSTALL_PREFIX)#' -i Lib/mimetypes.py
@@ -76,7 +79,7 @@ python3_post_install: $(WORK_DIR)/python-cc.mk
 	mkdir -p $(PYTHON_LIB_CROSS)
 	cp -R $(HOSTPYTHON_LIB_NATIVE) $(PYTHON_LIB_CROSS)/../
 ifneq ($(PYTHON_LIB_NATIVE),$(PYTHON_LIB_CROSS))
-	cp $(PYTHON_LIB_CROSS)/_sysconfigdata_*.py $(PYTHON_LIB_NATIVE)/_sysconfigdata.py
+	cp $(PYTHON_LIB_CROSS)/_sysconfigdata_m_linux_$(HOST_ARCH)-linux-gnu.py $(PYTHON_LIB_NATIVE)/_sysconfigdata.py
 endif
 
 $(WORK_DIR)/python-cc.mk:
@@ -91,3 +94,4 @@ $(WORK_DIR)/python-cc.mk:
 	@echo PYTHON_INC_DIR=$(PYTHON_INC_DIR) >> $@
 	@echo PIP=$(PIP_NATIVE) >> $@
 	@echo CROSS_COMPILE_WHEELS=1 >> $@
+
