@@ -59,17 +59,3 @@ that ultimately fails
  		$(srcdir)/Include/graminit.h.new \
  		$(srcdir)/Python/graminit.c.new
  		$(UPDATE_FILE) $(srcdir)/Include/graminit.h $(srcdir)/Include/graminit.h.new
- dnl 
- dnl Copy _sysconfigdata_m_linux_x86_64-linux-gnu.py to match the expected cross build name.
- dnl The content is for the cross target, but the filename is not.
- dnl 
---- Makefile.pre.in.orig	2018-12-23 21:37:14.000000000 +0000
-+++ Makefile.pre.in	2019-11-17 22:54:48.612445041 +0000
-@@ -1341,6 +1342,7 @@
- 			esac; \
- 		done; \
- 	done
-+	cp -u `cat pybuilddir.txt`/_sysconfigdata_m_linux_x86_64-linux-gnu.py `cat pybuilddir.txt`/_sysconfigdata_$(ABIFLAGS)_$(MACHDEP)_$(MULTIARCH).py; \
- 	$(INSTALL_DATA) `cat pybuilddir.txt`/_sysconfigdata_$(ABIFLAGS)_$(MACHDEP)_$(MULTIARCH).py \
- 		$(DESTDIR)$(LIBDEST); \
- 	$(INSTALL_DATA) $(srcdir)/LICENSE $(DESTDIR)$(LIBDEST)/LICENSE.txt
