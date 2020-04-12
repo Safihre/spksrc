@@ -1,5 +1,5 @@
 PKG_NAME = Sonarr
-PKG_VERS = 3.0.3.654
+PKG_VERS = 3.0.3.750
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME).phantom-develop.$(PKG_VERS).linux.$(PKG_EXT)
 PKG_DIST_SITE = http://download.sonarr.tv/v3/phantom-develop/$(PKG_VERS)

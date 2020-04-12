@@ -17,7 +17,7 @@ DESCRIPTION_SPN = Sonarr es un PVR para los usuarios de grupos de noticias y tor
 RELOAD_UI = yes
 DISPLAY_NAME = Sonarr
 STARTABLE = yes
-CHANGELOG = "Update Sonarr to v3.0.3.654"
+CHANGELOG = "Update Sonarr (v3 Beta package) to v3.0.3.750 + add workaround for mono bug with armv5/88f6281"
 
 HOMEPAGE = https://sonarr.tv
 LICENSE  = GPLv3
