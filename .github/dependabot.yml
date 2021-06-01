@@ -1,0 +1,16 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/spk/sabnzbd/src"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  target-branch: master
+  ignore:
+  - dependency-name: cheetah3
+    versions:
+    - 3.2.6.post1
+  - dependency-name: sabyenc
+    versions:
+    - 3.3.6
