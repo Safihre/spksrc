@@ -4,7 +4,7 @@ SPK_REV = 55
 SPK_ICON = src/sabnzbd.png
 
 BUILD_DEPENDS = cross/python310
-DEPENDS = cross/busybox cross/par2cmdline cross/unrar cross/p7zip cross/$(SPK_NAME)
+DEPENDS = cross/busybox cross/par2cmdline cross/unrar cross/p7zip cross/nzb-notify cross/$(SPK_NAME)
 SPK_DEPENDS = "python310"
 
 # To generate full requirements.txt, extend SABnzbd's own
