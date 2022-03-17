@@ -18,6 +18,6 @@ include ../../mk/spksrc.install-resources.mk
 
 # Need to replace the path to python in the shebang of sabnzbd-notify.py
 nzbnotify_install:
-	mkdir -p $(STAGING_INSTALL_PREFIX)/share/SABnzbd/scripts
-	tar -cf - -C $(WORK_DIR)/$(PKG_DIR) . | tar -xf - -C $(STAGING_INSTALL_PREFIX)/share/SABnzbd/scripts
-	sed -i '1s/\/usr\/bin/\/usr\/local/' $(STAGING_INSTALL_PREFIX)/share/SABnzbd/scripts/sabnzbd-notify.py
+	mkdir -p $(STAGING_INSTALL_PREFIX)/share/nzb-notify
+	tar -cf - -C $(WORK_DIR)/$(PKG_DIR) . | tar -xf - -C $(STAGING_INSTALL_PREFIX)/share/nzb-notify
+	sed -i '1s/\/usr\/bin/\/usr\/local/' $(STAGING_INSTALL_PREFIX)/share/nzb-notify/sabnzbd-notify.py
