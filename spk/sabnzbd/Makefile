@@ -47,3 +47,4 @@ sabnzbd_extra_install:
 	install -m 600 src/config.ini $(STAGING_DIR)/var/config.ini
 	mv $(STAGING_INSTALL_PREFIX)/share/nzb-notify/* $(STAGING_DIR)/var/scripts/
 	chmod 755 $(STAGING_DIR)/var/scripts/sabnzbd-notify.py
+
