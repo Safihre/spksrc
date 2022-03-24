@@ -85,7 +85,7 @@ RUN wget https://bootstrap.pypa.io/get-pip.py -O - | python3
 RUN pip3 install meson==0.56.0
 
 # Compile Python 3 native beforehand
-RUN cd ./native/python310 && make all
+RUN cd /spksrc/native/python310 && make all
 
 # Volume pointing to spksrc sources
 VOLUME /spksrc
