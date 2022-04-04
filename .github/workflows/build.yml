@@ -99,6 +99,12 @@ jobs:
           path: distrib
           key: distrib-${{ github.run_id }}
 
+      - name: Cache native/python310 build
+        uses: actions/cache@v2
+        with:
+          path: native/python310/work-native 
+          key: native-python310-${{ hashFiles('native/python310/Makefile') }}
+
       - name: Build Package (based on changed files)
         # We don't want to stop the build on errors.
         # Errors are reported in "Build Status"
