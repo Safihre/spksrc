@@ -1,2 +1,1 @@
-rsc:bin/7za
-lib:lib/p7zip/7za
+bin:lib/p7zip/7za
