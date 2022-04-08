@@ -1,9 +1,12 @@
 PKG_NAME = SABnzbd
-PKG_VERS = 3.6.0Beta2
+REPO_NAME = sabnzbd
+PKG_VERS = 3.6.0-develop
 PKG_EXT = tar.gz
-PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS)-src.$(PKG_EXT)
-PKG_DIST_SITE = https://github.com/sabnzbd/sabnzbd/releases/download/$(PKG_VERS)
-PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
+PKG_DOWNLOAD_METHOD = git
+PKG_GIT_HASH = 8c9c236d70da8ff943ceb94fb1aa470dff3c41c9
+PKG_DIST_SITE = https://github.com/sabnzbd/$(REPO_NAME).git
+PKG_DIST_FILE = $(PKG_NAME)-git$(PKG_GIT_HASH).$(PKG_EXT)
+PKG_DIR = $(PKG_NAME)-git$(PKG_GIT_HASH)
 
 DEPENDS =
 
@@ -22,4 +25,3 @@ sabnzbd_install:
 	tar -cf - -C $(WORK_DIR)/$(PKG_DIR) . | tar -xf - -C $(STAGING_INSTALL_PREFIX)/share/SABnzbd
 	rm -rf $(STAGING_INSTALL_PREFIX)/share/SABnzbd/tests
 	rm -rf $(STAGING_INSTALL_PREFIX)/share/SABnzbd/po
-	sed -i '1s/\/usr\/bin/\/usr\/local/' $(STAGING_INSTALL_PREFIX)/share/SABnzbd/scripts/Deobfuscate.py
