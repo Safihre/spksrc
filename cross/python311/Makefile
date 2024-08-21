@@ -135,6 +135,7 @@ python311_install:
 # default wheels to install in crossenv
 CROSSENV_WHEELS  = cffi==1.15.1
 CROSSENV_WHEELS += cryptography==41.0.3
+CROSSENV_WHEELS += semantic-version==2.10.0
 #
 # Cython version >= 3.x breaks PyYAML wheel
 # https://github.com/yaml/pyyaml/issues/601
