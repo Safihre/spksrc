@@ -1,11 +1,10 @@
 PKG_NAME = par2cmdline-turbo
-PKG_VERS = 1.1.0
+PKG_VERS = 1.1.1
 PKG_EXT = tar.gz
-PKG_GIT_HASH = e00677a8249f438f0f52b0270af9e8c7116eeac0
-PKG_DIST_NAME = $(PKG_GIT_HASH).$(PKG_EXT)
-PKG_DIST_SITE = https://github.com/animetosho/par2cmdline-turbo/archive
-PKG_DIST_FILE = $(PKG_NAME)-git$(PKG_GIT_HASH).$(PKG_EXT)
-PKG_DIR = $(PKG_NAME)-$(PKG_GIT_HASH)
+PKG_DIST_NAME = $(PKG_NAME)-v$(PKG_VERS)-src.$(PKG_EXT)
+PKG_DIST_SITE = https://github.com/animetosho/par2cmdline-turbo/archive/v$(PKG_VERS)
+PKG_DIST_FILE = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
+PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS =
 
